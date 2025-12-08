@@ -7,7 +7,7 @@ function allPaintings(paintings, app) {
 function paintingById(paintings, app) {
     app.get('/api/painting/:id', (req, resp) => {
         const id = parseInt(req.params.id);
-        const matches = paintings.filter(painting => painting.paintingID == id);
+        const matches = paintings.filter(painting => painting.paintingID === id);
 
         if (matches.length > 0) {
             resp.json(matches);
@@ -20,7 +20,7 @@ function paintingById(paintings, app) {
 function paintingByGalleryId(paintings, app) {
     app.get('/api/painting/gallery/:id', (req, resp) => {
         const id = parseInt(req.params.id);
-        const matches = paintings.filter(painting => painting.gallery.galleryID == id);
+        const matches = paintings.filter(painting => painting.gallery.galleryID === id);
 
         if (matches.length > 0) {
             resp.json(matches);
@@ -33,7 +33,7 @@ function paintingByGalleryId(paintings, app) {
 function paintingByArtistId(paintings, app) {
     app.get('/api/painting/artist/:id', (req, resp) => {
         const id = parseInt(req.params.id);
-        const matches = paintings.filter(painting => painting.artist.artistID == id);
+        const matches = paintings.filter(painting => painting.artist.artistID === id);
         
         if (matches.length > 0) {
             resp.json(matches);
@@ -75,7 +75,7 @@ function paintingByColor(paintings, app) {
         const name = req.params.name.toLowerCase();
         const matches = paintings.filter(painting => {
             const dominateColors = painting.details.annotation.dominantColors;
-            return dominateColors.find(color => color.name.toLowerCase() == name);
+            return dominateColors.find(color => color.name.toLowerCase() === name);
         });
 
         if (matches.length > 0) {
