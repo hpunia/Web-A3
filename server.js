@@ -18,12 +18,16 @@ galleriesRouter.galleriesByCountry(galleries, app);
 
 const paintingsRouter = require('./scripts/paintings'); 
 paintingsRouter.allPaintings(paintings, app); 
-paintingsRouter.paintingById(paintings, app); 
+
+// Register specific routes first
 paintingsRouter.paintingByGalleryId(paintings, app); 
 paintingsRouter.paintingByArtistId(paintings, app); 
 paintingsRouter.paintingByYearRange(paintings, app); 
 paintingsRouter.paintingByTitle(paintings, app); 
 paintingsRouter.paintingByColor(paintings, app); 
+
+// Register generic :id route last
+paintingsRouter.paintingById(paintings, app);
 
 // use express to listen to port 
 let port = process.env.PORT; 
