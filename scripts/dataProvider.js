@@ -13,10 +13,10 @@ function getData(filename) {
 // get data from JSON
 const artists = getData('artists.json');
 const galleries = getData('galleries.json');
-const paintingsNested = getData('paintings-nested.json');
+const paintings = getData('paintings-nested.json');
 
 module.exports = {
     artists : artists,
     galleries : galleries,
-    paintingsNested : paintingsNested
+    paintings : paintings
 }
